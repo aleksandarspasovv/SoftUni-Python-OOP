@@ -11,4 +11,3 @@ class PizzaDelivery:
             self.ingredients[ingredient] += quantity
         else:
             self.ingredients[ingredient] = quantity
-        
