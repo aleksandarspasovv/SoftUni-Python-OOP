@@ -1,0 +1,2 @@
+class Elf(Hero):
+    pass
