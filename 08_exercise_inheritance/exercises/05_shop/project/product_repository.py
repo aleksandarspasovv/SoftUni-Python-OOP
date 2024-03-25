@@ -11,10 +11,10 @@ class ProductRepository:
         self.products.append(product)
 
     def find(self, product_name):
-        for product in self.products:
-            if product.name == product_name:  # Check for product.name instead
-                return product
-        # return next((product for product in self.products if product.name == product_name), None)
+        # for product in self.products:
+        #     if product.name == product_name:  # Check for product.name instead
+        #         return product
+        return next((product for product in self.products if product.name == product_name), None)
 
     def remove(self, product_name):
         product = self.find(product_name)
