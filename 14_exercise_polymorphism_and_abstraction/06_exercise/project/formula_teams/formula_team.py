@@ -1,10 +1,20 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 
 
 class FormulaTeam(ABC):
 
     def __init__(self, budget):
         self.budget = budget
+
+    @property
+    @abstractmethod
+    def sponsors(self):
+        ...
+
+    @property
+    @abstractmethod
+    def expenses_for_one_race(self):
+        ...
 
     @property
     def budget(self):
@@ -17,6 +27,17 @@ class FormulaTeam(ABC):
 
         self.__budget = value
 
-    def calculate_revenue_after_race(self):
-        ...
-    
+    @abstractmethod
+    def calculate_revenue_after_race(self, race_pos):
+        revenue = 0
+
+        for sponsor in self.sponsors.values():
+            for pos in sponsor:
+                if race_pos <= pos:
+                    revenue += sponsor[pos]
+                    break
+
+        revenue -= self.expenses_for_one_race
+        self.budget += revenue
+
+        return f"The revenue after the race is {revenue}$. Current budget {self.budget}$"
