@@ -1,5 +1,4 @@
 from project.formula_teams.red_bull_team import RedBullTeam
-
 from project.formula_teams.mercedes_team import MercedesTeam
 
 

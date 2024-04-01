@@ -27,7 +27,6 @@ class FormulaTeam(ABC):
 
         self.__budget = value
 
-    @abstractmethod
     def calculate_revenue_after_race(self, race_pos):
         revenue = 0
 
