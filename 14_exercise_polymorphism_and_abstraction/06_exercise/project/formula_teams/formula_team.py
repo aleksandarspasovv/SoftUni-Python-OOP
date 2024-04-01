@@ -14,5 +14,9 @@ class FormulaTeam(ABC):
     def budget(self, value):
         if value < 1_000_000:
             raise ValueError("F1 is an expensive sport, find more sponsors!")
-        
-        self.budget = value
+
+        self.__budget = value
+
+    def calculate_revenue_after_race(self):
+        ...
+    

@@ -1,0 +1,1 @@
+class RedBullTeam(FormulaTeam):
