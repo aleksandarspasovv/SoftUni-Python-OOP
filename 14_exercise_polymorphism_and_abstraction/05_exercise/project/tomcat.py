@@ -8,4 +8,3 @@ class Tomcat(Cat):
     @staticmethod
     def make_sound():
         return "Hiss"
-    
