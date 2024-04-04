@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from exercises.integerlist import IntegerList
+#from exercises.integerlist import IntegerList
 
 
 class TestIntegerList(TestCase):
@@ -53,14 +53,20 @@ class TestIntegerList(TestCase):
         self.assertEqual("Element is not Integer", str(ve.exception))
 
     def test_get_in_a_sorted_list(self):
-        expected_list = self.i_list.get_data().conpy()
+        expected_list = self.i_list.get_data().copy()
         expected_list.insert(1, 5)
 
         self.i_list.insert(1, 5)
 
         self.assertEqual(expected_list, self.i_list.get_data())
 
+    def test_get_biggest_number(self):
+        result = self.i_list.get_biggest()
+        self.assertEqual(3, result)
 
+    def test_get_index(self):
+        result = self.i_list.get_index(2)
+        self.assertEqual(1, result)
 
 
 
