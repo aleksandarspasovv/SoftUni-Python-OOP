@@ -21,11 +21,30 @@ class Hotel:
             room = next(filter(lambda x: x.number == room_number, self.rooms))
 
         except StopIteration:
-
             return
+
+        result = room.take_room(people)
+
+        if not result:
+            self.guests += people
+
     def free_room(self, room_number):
         try:
             room = next(filter(lambda r: r.name == room_number, self.rooms))
 
         except StopIteration:
-            return 
+            return
+
+        people = room.guests
+        result = room.free_room()
+
+        if not result:
+            self.guests -= people
+
+    def satus(self):
+        return f"Hotel {self.name} has {self.guests} total guests"\
+               f"Free rooms: {', '.join(str(r.number) for r in self.rooms if not r.is_taken)}"\
+               f"Taken rooms: {','.join(str(r.number) for r in self.rooms if r.is_taken)}"
+
+
+
