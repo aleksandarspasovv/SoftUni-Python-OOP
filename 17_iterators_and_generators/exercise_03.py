@@ -12,7 +12,7 @@ class vowels:
     def __next__(self):
         self.index += 1
         if self.index < len(self.vowels_values):
-            return self.string[self.index]
+            return self.vowels_values[self.index]
         raise StopIteration
 
 
